@@ -42,13 +42,18 @@ export default class HomeScreen extends React.Component {
             </View>
 
             <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
+              Keep in Touch
             </Text>
           </View>
+              
+              
+        
 
+
+    
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+              <Text style={styles.helpLinkText}>Dijets</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -101,7 +106,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'yellow',
   },
   developmentModeText: {
     marginBottom: 20,
