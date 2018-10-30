@@ -1,62 +1,78 @@
-import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
-import AppNavigator from './navigation/AppNavigator';
+import React, { Component} from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import { ThemeProvider } from 'react-native-elements';
+import CustomButton from './components/CustomButton';
+import Input from "./components/Input";
 
-export default class App extends React.Component {
-  state = {
-    isLoadingComplete: false,
-  };
 
-  render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-      return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
-        />
-      );
-    } else {
-      return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
-        </View>
-      );
+class App extends React.Component {
+    render() {
+        return (
+          
+            <View style={styles.container}>
+            <Text style={styles.headerStyle}>Dijits</Text>
+                <View style={styles.innerBox}>
+                    <Text style={styles.headerStyle}>sign up now</Text>
+                    <Text style={styles.subheaderFont}>please enter your login</Text>
+                    <Text style={styles.subheaderFont}>or create your free account</Text>
+                   <View>
+                        <Input 
+                            placeholderTextColor="black"
+                            name="Username"
+                            color="black"
+                        />
+                        <Input
+                            color="black"
+                            name="Password"
+                        />
+                    </View>
+                    <CustomButton />
+
+
+                </View>
+            </View>
+
+        );
+      }
     }
-  }
 
-  _loadResourcesAsync = async () => {
-    return Promise.all([
-      Asset.loadAsync([
-        require('./assets/images/robot-dev.png'),
-        require('./assets/images/robot-prod.png'),
-      ]),
-      Font.loadAsync({
-        // This is the font that we are using for our tab bar
-        ...Icon.Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
-        'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-      }),
-    ]);
-  };
+    const styles = {
+        container: {
+          marginTop: 48,
+          flex: 1,
+          backgroundColor: "purple"
+        },
+        headerStyle: {
+            fontSize: 36,
+            textAlign: 'center',
+            fontWeight: '200',
+            marginBottom: 2,
+            color: "white"
+          },
+          innerBox: {
+              flex: 1,
+              backgroundColor: "black",
+              margin: 30,
+              marginTop: 25,
+              marginBottom: 35,
+              paddingTop: 60
+          },
+          subheaderFont: {
+            fontSize: 26,
+            textAlign: 'center',
+            fontWeight: '100',
+            color: "white",
+            marginTop: "5%"
+          },
+          inputStyle: {
+              color: "red"
+          },
 
-  _handleLoadingError = error => {
-    // In this case, you might want to report the error to your error
-    // reporting service, for example Sentry
-    console.warn(error);
-  };
+          inputUser: {
+            textInputColor: "black",
+          }
 
-  _handleFinishLoading = () => {
-    this.setState({ isLoadingComplete: true });
-  };
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+        }
+
+    export default App;
