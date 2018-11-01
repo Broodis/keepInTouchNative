@@ -11,12 +11,15 @@ export default class Input extends Component {
     return (
       <TextInput
         style={styles.input}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={this.props.onChangeText}
         value={this.state.text}
         placeholderTextColor={this.props.color}
         placeholder={this.props.name}
-  
-        
+        secureTextEntry={this.props.secureTextEntry}
+        textContentType={this.props.textContentType}
+        dataDetectorTypes={this.props.dataDetectorTypes}
+        maxLength={this.props.maxLength}
+        keyboardType={this.props.keyboardType}
       />
     );
   }
