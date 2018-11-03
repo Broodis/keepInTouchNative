@@ -4,19 +4,15 @@ import { AppRegistry, View, Text, StyleSheet, Button } from 'react-native';
 export default class CustomButton extends Component {
     constructor(props) {
         super(props);
-        
         // this.onTouch = this.onTouch.bind(this);
     }
     // onTouch() {
     //     alert('this button works!');
     // }
-
-
     
     render() {
         return (
             <View 
-            
             onTouchStart={this.props.onTouch}
             // onTouchStart={this.onTouch}
             style={styles.buttonWrapper}>    
@@ -27,8 +23,6 @@ export default class CustomButton extends Component {
         )
     }
 }
-
-
 
 const styles = StyleSheet.create({
     buttonWrapper: {
