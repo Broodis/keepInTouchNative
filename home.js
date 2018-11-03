@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {View, Text, TouchableOpacity, Button} from 'react-native';
+import {View, Text, TouchableOpacity, Button, StyleSheet} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
@@ -12,9 +12,9 @@ class HomeScreen extends React.Component {
             password: ''
         }
     }
-    static navigationOptions = {
-        title: 'sign in',
-      };
+    // static navigationOptions = {
+    //     title: 'sign in',
+    //   };
 
     handlePhoneInput = (phone) => {
         this.setState({ phone });
@@ -25,6 +25,21 @@ class HomeScreen extends React.Component {
     }
 
     handleUserCheck = () => {
+        
+        //ajax calls
+        // do the stuff below
+        // but for now...
+        return;
+        axios.post('https://my-heroku-domain.com/api/userCheck', {
+            phone: '123-456-7890'
+        }).then(response => {
+            // EITHER
+            // set login data using AsyncStorage
+            // https://facebook.github.io/react-native/docs/asyncstorage
+            // then navigate to MyScreen which loads the data from AsyncStorage
+            // OR...
+            // navigate to MyScreen with the data passed in to the second parameter
+        })
         // axios.post('your db url', some info from)
     }
 
@@ -45,7 +60,7 @@ class HomeScreen extends React.Component {
                             color="black"
                             textContentType="telephoneNumber"
                             maxLength={10}
-                            keyboardType="number-pad"
+                            //keyboardType="number-pad"
                             onChangeText={this.handlePhoneInput}
                         />
                         <Input
@@ -56,12 +71,20 @@ class HomeScreen extends React.Component {
                         />
                     </View>
                     <CustomButton
-                        text="log in"
+                        text="sign up"
                         onTouch={() => {
                             this.handleUserCheck();
                             navigate('Results', { name: 'Jane' })}
                         }
                     />
+                    <View style={styles.signupLink}>
+                        <Button 
+                            onPress={() => {
+                            this.handleUserCheck();
+                            navigate('SignUp', { name: 'Jane' })}}
+                            title="not already a user? sign up here"
+                        />
+                    </View>
                 </View> 
             </View>
 
@@ -73,16 +96,17 @@ class HomeScreen extends React.Component {
 
     const styles = {
         container: {
-          marginTop: 48,
+          //marginTop: 48,
           flex: 1,
-          backgroundColor: "purple"
+          backgroundColor: "black"
         },
         headerStyle: {
             fontSize: 36,
             textAlign: 'center',
             fontWeight: '200',
             marginBottom: 2,
-            color: "white"
+            color: "white",
+            paddingTop: 20
           },
           innerBox: {
               flex: 1,
@@ -90,7 +114,8 @@ class HomeScreen extends React.Component {
               margin: 30,
               marginTop: 25,
               marginBottom: 35,
-              paddingTop: 60
+              paddingTop: 6,
+              marginTop: 48
           },
           subheaderFont: {
             fontSize: 26,
@@ -104,7 +129,12 @@ class HomeScreen extends React.Component {
           },
 
           inputUser: {
-            textInputColor: "black",
+            textInputColor: "black"
+          },
+
+          signupLink: {
+            backgroundColor: "black",
+            paddingTop: 40
           }
 
 

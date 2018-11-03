@@ -1,18 +1,36 @@
 import React, { Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Button} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
-
+import App from "./App";
 
 
 class ResultsScreen extends React.Component {
     render() {
+        const { navigate } = this.props.navigation;
         return (
-            <View 
-                style={styles.container}
-            >
-                <Text style={styles.headerStyle}>search results</Text>
+            <View style={styles.container}>
+                <Text style={styles.headerStyle}>search a dijit</Text>
+                <View>
+                    <Input
+                        name=" search someones dijits"
+                        color="black"
+                        textContentType="telephoneNumber"
+                        onChangeText={this.handlePhoneInput}
+                        
+                      />
+                      
+                </View>
+                <View>
+                    <Button 
+                        onPress={() => {
+                            //this.handleUserCheck();
+                            navigate('Cards', { name: 'Jane' })}}
+                            title="lets search"
+                            
+                    />
+                </View>
             </View>
 
         )
@@ -21,16 +39,17 @@ class ResultsScreen extends React.Component {
 
 const styles = {
     container: {
-      marginTop: 48,
+      //marginTop: 48,
       flex: 1,
-      backgroundColor: "purple"
+      backgroundColor: "black"
     },
     headerStyle: {
         fontSize: 36,
         textAlign: 'center',
         fontWeight: '200',
         marginBottom: 2,
-        color: "white"
+        color: "white",
+        paddingTop: 200
       },
       innerBox: {
           flex: 1,
@@ -53,10 +72,13 @@ const styles = {
 
       inputUser: {
         textInputColor: "black",
-      }
+      },
 
 
+    kittenButton: {
+        margin: 80,
+        setColor: "blue"
     }
-
+}
  
 export default ResultsScreen;
