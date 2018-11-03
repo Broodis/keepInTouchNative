@@ -3,8 +3,8 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
-import HomeScreen from "./screens/home";
-import ResultsScreen from "./screens/results";
+import HomeScreen from "./home";
+import ResultsScreen from "./results";
 
 
 import {
