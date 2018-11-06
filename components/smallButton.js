@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, StyleSheet, Button } from 'react-native';
 
-export default class CustomButton extends Component {
+export default class SmallButton extends Component {
     constructor(props) {
         super(props);
         
@@ -41,12 +41,13 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderWidth: 1,
     borderColor: 'transparent',
+    width: 160,
     },
     buttonInner: {
       textAlign: "center",
       color: 'yellow',
       fontWeight: 'bold',
-      fontSize: 30
+      fontSize: 30,
     },
     red: {
         backgroundColor: 'purple',
@@ -56,4 +57,4 @@ const styles = StyleSheet.create({
     },
   });
 
-AppRegistry.registerComponent('KeepInTouchNative', () => CustomButton);
+AppRegistry.registerComponent('KeepInTouchNative', () => SmallButton);

@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 24541,
-  "expoServerNgrokUrl": "https://8n-zwu.muddywater.keepintouchnative.exp.direct",
-  "packagerNgrokUrl": "https://packager.8n-zwu.muddywater.keepintouchnative.exp.direct",
-  "ngrokPid": 24572
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://8n-zwu.anonymous.keepintouchnative.exp.direct",
+  "packagerNgrokUrl": "https://packager.8n-zwu.anonymous.keepintouchnative.exp.direct",
+  "ngrokPid": 50906
 }

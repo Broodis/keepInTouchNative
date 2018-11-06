@@ -1,3 +1,4 @@
+// SEARCH PAGE
 import React, { Component} from 'react';
 import {View, Text, TouchableOpacity, Button} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
@@ -5,8 +6,11 @@ import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
 import App from "./App";
 
-
 class ResultsScreen extends React.Component {
+    state = {
+        fontLoaded: false,
+        telephoneNumber: '',
+    }
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -18,22 +22,42 @@ class ResultsScreen extends React.Component {
                         color="black"
                         textContentType="telephoneNumber"
                         onChangeText={this.handlePhoneInput}
-                        
+                        value={this.state.telephoneNumber}
                       />
                       
                 </View>
                 <View>
                     <Button 
                         onPress={() => {
+                            // How do you configure www.somewhere.com
+                            // The URL needs to come from a configuration of sorts
+                            // Before you are live, you can certainly hard-code
+                            // the same URL for all your calls
+                            // When you're in production, that can get risky
+                            
+
+                            // Uncomment block below for ajaxy love
+                            /*
+                            axios.get('https://sfkhjsdf.herokuapp.com/api/search?query=' + this.state.telephoneNumber)
+                            .then(results => {
+                                // in here, you navigate("Cards", {yerData})
+                            })
+                            */
+                            
                             //this.handleUserCheck();
-                            navigate('Cards', { name: 'Jane' })}}
-                            title="lets search"
+                            navigate('Cards', { name: 'Jane' })}
+                        }
+                        title="lets search"
                             
                     />
                 </View>
             </View>
 
         )
+    }
+
+    handlePhoneInput = evt => {
+        this.setState({telephoneNumber: evt.target.value})
     }
 }
 

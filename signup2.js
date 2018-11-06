@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Navigate} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
@@ -43,6 +43,7 @@ class SignUp2 extends React.Component {
   
 
     render() {
+        const { navigate } = this.props.navigation;
         //const { navigate } = this.handleUserCheck;
         
         return (
@@ -81,9 +82,6 @@ class SignUp2 extends React.Component {
                         secureTextEntry={true} 
                         onChangeText={this.handleYouTubeInput}
                     />
-                
-                
-                
                     <View style={styles.signupButton}>
                     <CustomButton
                         text="finish and search"
