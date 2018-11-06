@@ -23,11 +23,6 @@ import SignUp2 from './signup2';
     SignUp: { screen: signupScreen},
     SignUp2: { screen: signupScreen2},
     Cards: { screen: resultCards }
-    
   });
   
   export default App;
-//"results" page will be search page//
-//cards.js will be where the the actual results are displayed//
-
-

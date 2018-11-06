@@ -1,3 +1,4 @@
+// SEARCH PAGE
 import React, { Component} from 'react';
 import {View, Text, TouchableOpacity, Button} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
@@ -5,8 +6,10 @@ import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
 import App from "./App";
 
-
 class ResultsScreen extends React.Component {
+    state = {
+        fontLoaded: false,
+    }
     render() {
         const { navigate } = this.props.navigation;
         return (

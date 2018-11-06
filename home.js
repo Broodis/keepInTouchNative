@@ -71,7 +71,7 @@ class HomeScreen extends React.Component {
                         />
                     </View>
                     <CustomButton
-                        text="sign up"
+                        text="sign in"
                         onTouch={() => {
                             this.handleUserCheck();
                             navigate('Results', { name: 'Jane' })}
