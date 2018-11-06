@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, StyleSheet, Button } from 'react-native';
 
-export default class ViewProfileButton extends Component {
+export default class SmallButton extends Component {
     constructor(props) {
-        super(props);     
+        super(props);
+        
+        // this.onTouch = this.onTouch.bind(this);
     }
+    // onTouch() {
+    //     alert('this button works!');
+    // }
 
+
+    
     render() {
         return (
             <View 
+            
             onTouchStart={this.props.onTouch}
+            // onTouchStart={this.onTouch}
             style={styles.buttonWrapper}>    
                 <Text style={styles.red}>     
                     {this.props.text}
@@ -19,6 +28,8 @@ export default class ViewProfileButton extends Component {
     }
 }
 
+
+
 const styles = StyleSheet.create({
     buttonWrapper: {
     marginRight:40,
@@ -26,22 +37,24 @@ const styles = StyleSheet.create({
     marginTop:30,
     paddingTop:20,
     paddingBottom:20,
-    backgroundColor:'white',
-    borderRadius: 10,
+    backgroundColor:'purple',
+    borderRadius: 30,
     borderWidth: 1,
     borderColor: 'transparent',
+    width: 160,
     },
     buttonInner: {
       textAlign: "center",
       color: 'yellow',
       fontWeight: 'bold',
-      fontSize: 30
+      fontSize: 30,
     },
     red: {
         backgroundColor: 'purple',
         color: 'white',
         textAlign: "center"
+
     },
   });
 
-AppRegistry.registerComponent('KeepInTouchNative', () => ViewProfileButton);
+AppRegistry.registerComponent('KeepInTouchNative', () => SmallButton);

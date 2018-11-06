@@ -3,15 +3,38 @@ import {View, Text, TouchableOpacity, Button, StyleSheet} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
+import {Font} from 'expo';
+import { FontAwesome } from '@expo/vector-icons';
+
+function cacheFonts(fonts) {
+    return fonts.map(font => Font.loadAsync(font));
+}
 
 class HomeScreen extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             phone: '',
-            password: ''
+            password: '',
+            loaded: false,
         }
     }
+
+    componentDidMount() {
+        this._loadAssetsAsync().then(() => {
+            this.setState({loaded: true})
+        }).catch(err => {
+            console.log(err);
+            // Heeeeey what's up
+        })
+    }
+
+    _loadAssetsAsync() {
+        const fontAssets = cacheFonts([FontAwesome.font]);
+        return  Promise.all([ ...fontAssets]);
+    }
+
+
     // static navigationOptions = {
     //     title: 'sign in',
     //   };
@@ -44,6 +67,9 @@ class HomeScreen extends React.Component {
     }
 
     render() {
+        if (!this.state.loaded) {
+            return ''
+        }
         const { navigate } = this.props.navigation;
         return (
           

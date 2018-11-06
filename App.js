@@ -10,13 +10,20 @@ import signupScreen2 from "./signup2";
 import resultCards from "./cards";
 import {RkButton} from 'react-native-ui-kitten';
 import {RkCard} from 'react-native-ui-kitten';
-
-
 import {
     createStackNavigator,
   } from 'react-navigation';
 import SignUp2 from './signup2';
-  
+import {Font} from 'expo';
+import { FontAwesome } from '@expo/vector-icons';
+
+
+
+// Font.loadAsync(FontAwesome.font)
+//   .then(() => {
+    
+//   })
+
   const App = createStackNavigator({
     Home: { screen: homeScreen },
     Results: { screen: resultsScreen },

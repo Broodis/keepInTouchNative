@@ -1,66 +1,73 @@
 import React, { Component} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, ScrollView, Dimensions, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import CustomButton from './components/CustomButton';
+import SmallButton from './components/smallButton';
 import Input from "./components/Input";
-import {RkCard, rkCardHeader, rkCardContent, rkCardFooter, RkText } from 'react-native-ui-kitten';
+import {RkCard, rkCardHeader, rkCardContent, rkCardFooter, RkText, withRkTheme } from 'react-native-ui-kitten';
 import { SocialIcon } from 'react-native-elements';
-import ViewProfileButton from './components/ViewProfileButton';
+const { height } = Dimensions.get('window');
 
 class resultCards extends React.Component {
+    state = {
+        screenHeight: 0,
+    };
+    onContentSizeChange = (contentWidth, contentHeight) => {
+        this.setState({ screenHeight: contentHeight });
+    };
     render() {
+        const scrollEnabled = this.state.screenHeight > height;
         return (
+            <ScrollView
+            style={{ flex: 1 }}
+            contentContainerStyle={styles.scrollview}
+            scrollEnabled={scrollEnabled}
+            onContentSizeChange={this.onContentSizeChange}
+            >
             <View style={styles.container}>
                 <Text style={styles.headerStyle}>Results</Text>
                 <View>
                 <RkCard style={styles.topCard} rkType='shadowed'>
-                    <View rkCardHeader>
-                    <SocialIcon type='instagram'/> 
-                        <Text>Instagram</Text>
+                    <View style={styles.CardHeader} rkCardHeader>
+                        <View style={styles.iconStyle}>
+                        <SocialIcon type='instagram'/> 
+                        </View>
+                        <View style={styles.handleStyle}>
+                        <Text style={styles.handleFont}>@Jane_Smith</Text>
+                        </View>
                     </View>
-                    <View rkCardContent>
-                        <ViewProfileButton
-                            text="View Profile"
-                        ></ViewProfileButton>
-                        <RkText style={{textAlign:'center'}}>
-                        One morning, when Gregor Samsa woke from happy dreams,
-                        he found himself transformed in ...
-                        </RkText>
+                    <View style={styles.buttonView} rkCardContent>
+                    <SmallButton text="View Profile"/>
                     </View>
                     </RkCard>
 
-                    <RkCard style={styles.card} rkType='shadowed'>
-                    <View rkCardHeader>
-                    <SocialIcon type='facebook'/>
-                        <Text>Facebook</Text>
-                    </View>
-                    <View rkCardContent>
-                        <RkText style={{textAlign:'center'}}>
-                        One morning, when Gregor Samsa woke from happy dreams,
-                        he found himself transformed in ...
-                        </RkText>
-                    </View>
-                    </RkCard>
-                    <RkCard style={styles.card} rkType='shadowed'>
-                    <View rkCardHeader>
-                    <SocialIcon type='twitter'/>
-                        <Text>Twitter</Text>
-                    </View>
-                    <View rkCardContent>
-                        <RkText style={{textAlign:'center'}}>
-                        One morning, when Gregor Samsa woke from happy dreams,
-                        he found himself transformed in ...
-                        </RkText>
-                    </View>
-                    </RkCard>
                 </View>
             </View>
+            </ScrollView>
         )
     }
 }
 
 
 const styles = {
+    buttonView: {
+        alignItems: "flex-end",
+        marginBottom: 25
+    },
+    handleFont: {
+        fontSize: 20,
+        color: "white"
+    },
+    handleStyle: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    iconStyle: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
     topCard: {
         marginBottom: 15,
         marginLeft: 15,
@@ -71,6 +78,10 @@ const styles = {
         marginLeft: 15,
         marginRight: 15,
         marginTop: 0,
+    },
+    CardHeader: {
+        backgroundColor: "purple",
+        height: 75,
     },
     container: {
       //marginTop: 48,
