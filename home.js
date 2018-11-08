@@ -74,7 +74,7 @@ class HomeScreen extends React.Component {
         return (
           
             <View style={styles.container}>
-            <Text style={styles.headerStyle}>Dijits</Text>
+            <Text style={styles.headerStyle1}>Dijits</Text>
                 <View style={styles.innerBox}>
                     <Text style={styles.headerStyle}>sign in</Text>
                     <Text style={styles.subheaderFont}>please enter your login</Text>
@@ -132,16 +132,24 @@ class HomeScreen extends React.Component {
             fontWeight: '200',
             marginBottom: 2,
             color: "white",
+            paddingTop: 10
+          },
+        headerStyle1: {
+            fontSize: 70,
+            textAlign: 'center',
+            fontWeight: '200',
+            marginBottom: 2,
+            color: "white",
             paddingTop: 20
           },
           innerBox: {
               flex: 1,
               backgroundColor: "black",
               margin: 30,
-              marginTop: 25,
+              marginTop: 5,
               marginBottom: 35,
               paddingTop: 6,
-              marginTop: 48
+
           },
           subheaderFont: {
             fontSize: 26,
