@@ -1,5 +1,5 @@
-import React, { Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import CustomButton from './components/CustomButton';
 import Input from "./components/Input";
@@ -33,55 +33,53 @@ class SignUp extends React.Component {
         this.setState({ password });
     }
 
-    
 
-    
+
+
     render() {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-                <Text style={styles.headerStyle}>Lets sign you up real quick</Text>
+                <Text style={styles.headerStyle}>Let's sign you up real quick</Text>
                 <View style={styles.signupSubmissions}>
-                    <Input 
+                    <Input
                         name="first name"
                         color="black"
                         textContentType="name"
                         onChangeText={this.handleFirstNameInput}
                     />
-                    <Input 
+                    <Input
                         name="last name"
                         color="black"
-                        textContentType="name"  
+                        textContentType="name"
                         onChangeText={this.handleLastNameInput}
 
                     />
-                    <Input 
+                    <Input
                         name="phone number"
                         color="black"
                         textContentType="telephoneNumber"
                         onChangeText={this.handlePhoneInput}
                     />
-                    <Input 
+                    <Input
                         name="password"
                         color="black"
-                        secureTextEntry={true} 
+                        secureTextEntry={true}
                         onChangeText={this.handlePasswordInput}
                     />
-                    <Input 
+                    <Input
                         name="confirm password"
                         color="black"
-                        secureTextEntry={true} 
+                        secureTextEntry={true}
                         onChangeText={this.handlePasswordInput}
                     />
-                
-                
-                
                     <View style={styles.signupButton}>
-                        <CustomButton 
-                            text="now lets get them socials"
+                        <CustomButton
+                            text="add socials"
                             onTouch={() => {
                                 //this.handleUserCheck();
-                                navigate('SignUp2', { name: 'Jane' })}
+                                navigate('SignUp2', { name: 'Jane' })
+                            }
                             }
                         />
                     </View>
@@ -94,9 +92,11 @@ class SignUp extends React.Component {
 
 const styles = {
     container: {
-      //marginTop: 48,
-      flex: 1,
-      backgroundColor: "black"
+        justifyContent: "center",
+        flex: 1,
+        backgroundColor: "black",
+        flexDirection: "column",
+        paddingBottom: 50
     },
     headerStyle: {
         fontSize: 30,
@@ -104,39 +104,38 @@ const styles = {
         fontWeight: '200',
         marginBottom: 2,
         color: "white",
-        paddingTop: 20
-      },
-      innerBox: {
-          flex: 1,
-          backgroundColor: "black",
-          margin: 30,
-          marginTop: 25,
-          marginBottom: 35,
-          paddingTop: 60
-      },
-      subheaderFont: {
+    },
+    innerBox: {
+        flex: 1,
+        backgroundColor: "black",
+        margin: 30,
+        marginTop: 25,
+        marginBottom: 35,
+        paddingTop: 60
+    },
+    subheaderFont: {
         fontSize: 26,
         textAlign: 'center',
         fontWeight: '100',
         color: "white",
         marginTop: "5%"
-      },
-      inputStyle: {
-          color: "red"
-      },
+    },
+    inputStyle: {
+        color: "red"
+    },
 
-      inputUser: {
+    inputUser: {
         textInputColor: "black",
-      },
+    },
 
-      signupSubmissions: {
-          paddingTop: 5
-      }
-
-
-
-
+    signupSubmissions: {
+        paddingTop: 5
     }
 
- 
+
+
+
+}
+
+
 export default SignUp;

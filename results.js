@@ -21,7 +21,7 @@ class ResultsScreen extends React.Component {
                         name=" search someones dijits"
                         color="black"
                         textContentType="telephoneNumber"
-                        onChangeText={this.handlePhoneInput}
+                        // onChangeText={this.handlePhoneInput}
                         value={this.state.telephoneNumber}
                       />
                       
@@ -56,9 +56,9 @@ class ResultsScreen extends React.Component {
         )
     }
 
-    handlePhoneInput = evt => {
-        this.setState({telephoneNumber: evt.target.value})
-    }
+    // handlePhoneInput = evt => {
+    //     this.setState({telephoneNumber: evt.target.value})
+    // }
 }
 
 const styles = {

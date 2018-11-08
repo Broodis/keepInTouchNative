@@ -49,18 +49,18 @@ class SignUp2 extends React.Component {
         return (
             
             <View style={styles.container}>
-                <Text style={styles.headerStyle}>Lets sign you up real quick</Text>
+                <Text style={styles.headerStyle}>Add your socials</Text>
                 <View style={styles.signupSubmissions}>
                     <Input 
                         name="instagram"
                         color="black"
-                        textContentType="link"
+                        // textContentType="link"
                         onChangeText={this.handleInstagramInput}
                     />
                     <Input 
                         name="facebook"
                         color="black"
-                        textContentType="link"  
+                        // textContentType="link"  
                         onChangeText={this.handleFacebookInput}
 
                     />
@@ -99,9 +99,11 @@ class SignUp2 extends React.Component {
 
 const styles = {
     container: {
-      //marginTop: 48,
-      flex: 1,
-      backgroundColor: "black"
+        justifyContent: "center",
+        flex: 1,
+        backgroundColor: "black",
+        flexDirection: "column",
+        paddingBottom: 50
     },
     headerStyle: {
         fontSize: 30,
